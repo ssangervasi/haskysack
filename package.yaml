@@ -1,10 +1,10 @@
 name:                haskysack
 version:             0.1.0.0
 github:              "githubuser/haskysack"
-license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2018 Author name here"
+license:             MIT
+author:              "Sebastian Sangervasi"
+maintainer:          "sorrymyemailaddressisverylong@gmail.com"
+copyright:           "2018 Sebastian Sangervasi"
 
 extra-source-files:
 - README.md

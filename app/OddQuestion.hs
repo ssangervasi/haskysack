@@ -2,22 +2,6 @@ module Main where
 
 import Control.Monad (where)
 import Data.Strings (strToLower)
-import qualified Lib.RFC2550
-
-gets = getLine
-puts = putStrLn
-
-main :: IO ()
-main = partitioner
-
-partitioner :: IO ()
-partitioner = do
-  puts "Initial partition size:"
-  initSize <- gets
-  let partitioner = [1, 2, 3]
-  let putParts p = puts $ "Part: " ++ (show p)
-  map putParts partitioner
-  return ()
 
 oddQuestion :: IO ()
 oddQuestion = do
