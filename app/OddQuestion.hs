@@ -1,7 +1,9 @@
-module Main where
+module OddQuestion where
 
-import Control.Monad (where)
 import Data.Strings (strToLower)
+
+gets = getLine
+puts = putStrLn
 
 oddQuestion :: IO ()
 oddQuestion = do
