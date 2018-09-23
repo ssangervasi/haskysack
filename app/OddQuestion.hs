@@ -2,8 +2,7 @@ module OddQuestion where
 
 import Data.Strings (strToLower)
 
-gets = getLine
-puts = putStrLn
+import Lib.QuickIO
 
 oddQuestion :: IO ()
 oddQuestion = do

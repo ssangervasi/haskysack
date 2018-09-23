@@ -3,32 +3,29 @@ module PartitionWizard (
 ) where
 
 import Control.Monad (when)
-import Text.Read (readMaybe)
+
+import Lib.QuickIO
+import Lib.Partitioner
 
 interactiveWizard :: IO ()
 interactiveWizard = do
   puts "Initial partition size:"
   initSize <- geti
-  sequence $ map putParts $ partitioner initSize
+  let partition = Partition "Init" initSize
+  puts $ label partition
+  -- puts $ show $ size partition
+  puts . show . size $ partition
+  putParts $ enumerate initSize
   interactiveWizard
 
-partitioner :: Int -> [Int]
-partitioner size = [1..size]
+enumerate :: Int -> [Int]
+enumerate size = [1..size]
 
-putParts :: Show a => a -> IO ()
-putParts p = puts $ "Part: " ++ (show p)
+putParts :: Show a => [a] -> IO ()
+putParts ps = do
+  sequence $ map putPart ps
+  return ()
 
+putPart :: Show a => a -> IO ()
+putPart p = puts $ "Part: " ++ (show p)
 
-gets = getLine
-puts = putStrLn
-
-geti :: IO Int
-geti = do
-  s <- gets
-  maybe
-    -- Recurse on invalid input
-    geti
-    -- Wrap result in minimal IO
-    return
-    -- Try to parse
-    (readMaybe s :: Maybe Int)
